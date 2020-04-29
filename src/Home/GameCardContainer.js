@@ -4,12 +4,11 @@ import GameCard from './GameCard'
 
 
 class GameCardContainer extends React.Component {
-    
-    render (){
+
+    render () {
         return (
-            <div>
-            <h3>Game Card Container</h3>
-            {/* {this.props.newReleases.map(game => <GameCard gameObj={game} />)} */}
+            <div className='game-card-container'>
+                {this.props.gamesToDisplay ? this.props.gamesToDisplay.map(game => <GameCard gameObj={game} key={game.id} />) : null}
             </div>
         )
     }

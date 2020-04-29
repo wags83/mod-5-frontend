@@ -93,8 +93,8 @@ handleLoginOnChange = e => {
             />
         <Route path="/home" render={routerProps => <HomeContainer {...routerProps} />}/>
         <Route path="/browse" render={routerProps => <BrowseContainer {...routerProps} />}/>
-        <Route path="/games/:id" render={routerProps => <GameContainer {...routerProps} />}/>
-        <Route path="/profiles/:id" render={routerProps => <ProfileContainer {...routerProps} />}/>
+        <Route path="/games/:id" render={routerProps => <GameContainer {...routerProps} validated={this.state.validated}/>}/>
+        <Route path="/profiles/:id" render={routerProps => <ProfileContainer {...routerProps} validated={this.state.validated} />}/>
         </Switch>
     </div>
   );
