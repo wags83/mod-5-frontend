@@ -42,7 +42,7 @@ class GameContainer extends React.Component {
                 <h3>Game Container</h3>
                 <InfoCard gameObj={this.state.gameObj}/>
                 <button className='like-button' onClick={this.likeGame}>Like Game</button>
-                <CommentContainer api_id={api_id}/>
+                <CommentContainer api_id={api_id} gameObj={this.state.gameObj} validated={this.props.validated}/>
             </div>
         )
     }

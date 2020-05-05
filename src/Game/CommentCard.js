@@ -1,5 +1,5 @@
 import React from 'react';
-import { API_BASE }  from '../constants'
+
 
 class CommentCard extends React.Component {
 

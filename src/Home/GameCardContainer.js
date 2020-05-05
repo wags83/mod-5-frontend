@@ -1,5 +1,4 @@
 import React from 'react';
-import { API_BASE }  from '../constants'
 import GameCard from './GameCard'
 
 
