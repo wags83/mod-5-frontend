@@ -5,7 +5,7 @@ class SearchBox extends React.Component {
     render (){
         return (
             <div>
-                <h3>Search Box</h3>
+                Filter results by search term:
                 <input
                     name="searchTerm"
                     type="text"

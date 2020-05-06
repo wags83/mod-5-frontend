@@ -3,6 +3,7 @@ import GameCardContainer from '../Home/GameCardContainer'
 import Filter from './Filter'
 import { API_BASE }  from '../constants'
 import SearchBox from './SearchBox'
+import { Flex } from '@chakra-ui/core'
 
 class BrowseContainer extends React.Component {
     
@@ -36,12 +37,13 @@ class BrowseContainer extends React.Component {
     render (){
         let gamesToDisplay = this.state.filteredGames.filter(game => game.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
         return (
-            <div>
-                <h3>Browse Container</h3>
-                <SearchBox searchTerm={this.state.searchTerm} handleSearchChange={this.handleSearchChange}/>
-                <Filter handleFilterChange={this.handleFilterChange} />
+            <Flex className='browse-container'>
+                <Flex classname='filter-search-container' display="column" width="25%">
+                    <Filter handleFilterChange={this.handleFilterChange} />
+                    <SearchBox searchTerm={this.state.searchTerm} handleSearchChange={this.handleSearchChange}/>
+                </Flex>
                 <GameCardContainer gamesToDisplay={gamesToDisplay} />
-            </div>
+            </Flex>
         )
     }
 }

@@ -8,8 +8,7 @@ class Filter extends React.Component {
     render (){
         return (
             <div>
-                <h3>Filter Box</h3>
-                    <h1>Genres:</h1>
+                    <h1>Filter by Genre:</h1>
                     <div className="select">
                         <select 
                         name='filterBy' 

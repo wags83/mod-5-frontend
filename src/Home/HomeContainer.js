@@ -2,6 +2,7 @@ import React from 'react';
 import GameCardContainer from './GameCardContainer'
 import { API_BASE }  from '../constants'
 import { Link } from 'react-router-dom';
+import { Box, Image } from '@chakra-ui/core'
 
 class HomeContainer extends React.Component {
    
@@ -18,10 +19,21 @@ class HomeContainer extends React.Component {
     render () {
         return (
             <div>
-                <h3>Home Container</h3>
-                <Link to='/login'><h2>Login / Signup</h2></Link>
-                <h2>New Releases:</h2>
-                <GameCardContainer gamesToDisplay={this.state.newReleases}/>
+                <div>
+                    <Image src='https://i.imgur.com/WvlgEp8.jpg' alt='welcome banner' width='100%' />
+                </div>
+                <Box
+                    backgroundColor="#7251f0"
+                    background-blend-mode="multiply">
+                    <Box
+                        fontWeight='bold'
+                        fontSize='24pt'
+                        color='white'
+                        >
+                        New Releases:
+                    </Box>
+                    <GameCardContainer gamesToDisplay={this.state.newReleases.slice(0,8)}/>
+                </Box>
             </div>
         )
     }

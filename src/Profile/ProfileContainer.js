@@ -39,7 +39,7 @@ class ProfileContainer extends React.Component {
             }
             fetch(`${API_BASE}followers`, configObj)
             .then(resp => resp.json())
-            // .then(result => this.setState({follower: [...this.state.follower, result]}))
+            .then(result => this.setState({follower: [...this.state.follower, result]}))
         }
 
     render (){
@@ -48,7 +48,6 @@ class ProfileContainer extends React.Component {
         let displayLikedGames = this.state.likedGames.filter(likedGame => parseInt(likedGame.user_id) === parseInt(id))
         return (
             <div>
-                <h3>Profile Container</h3>
                 <ProfileInfo user={this.state.user}/>
                 <button onClick={this.followUser} className="follow-button">Follow User</button>
                 <LikedGamesContainer displayLikedGames={displayLikedGames} />

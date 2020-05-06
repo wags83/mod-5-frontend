@@ -7,7 +7,7 @@ class LikedGameContainer extends React.Component {
     render (){
         return (
             <div>
-                <h3>Liked Game Container</h3>
+                <h3>Liked Games:</h3>
                 {this.props.displayLikedGames.map(likedGame=> <LikedGame likedGame={likedGame}/>)}
             </div>
         )

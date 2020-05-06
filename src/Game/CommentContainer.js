@@ -40,8 +40,7 @@ class CommentContainer extends React.Component {
             }
             fetch(`${API_BASE}new_comment`, configObj)
             .then(resp => resp.json())
-            .then(result => console.log(result))
-            // .then(result => this.setState({comments: [...this.state.comments, result]}))
+            .then(result => this.setState({comments: [...this.state.comments, result]}))
         }
 
     render (){

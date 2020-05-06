@@ -1,4 +1,5 @@
 import React from 'react';
+import { Input, Text, Button } from "@chakra-ui/core";
 
 
 class SignupForm extends React.Component { 
@@ -10,34 +11,27 @@ class SignupForm extends React.Component {
         const history = this.props.history
         
         return (
-            <div className="base-container" >
                     <form className="form" onSubmit={e => this.props.handleCreateNewUser(e, history)}>
-                        <div className="header">Sign up</div>
-                        <div className="form-group">
+                        <Text fontSize='2em'>Sign Up</Text>
                             <label>Username</label>
-                            <input type='text' name='username' value={this.props.stateProps.signup.username} onChange={e => this.props.handleSignupOnChange(e)} placeholder="username"/>
-                        </div>
-                        <div className="form-group">
+                            <Input type='text' name='username' value={this.props.stateProps.signup.username} onChange={e => this.props.handleSignupOnChange(e)} placeholder="username"/>
+
                             <label>Password</label>
-                            <input type='password' name='password' value={this.props.stateProps.signup.password} onChange={e => this.props.handleSignupOnChange(e)} placeholder="password" />
-                        </div>
-                        <div className="form-group">
+                            <Input type='password' name='password' value={this.props.stateProps.signup.password} onChange={e => this.props.handleSignupOnChange(e)} placeholder="password" />
+
                             <label>Email</label>
-                            <input type='text' name='email' value={this.props.stateProps.signup.email} onChange={e => this.props.handleSignupOnChange(e)} placeholder="email"/>
-                        </div>
-                        <div className="form-group">
+                            <Input type='text' name='email' value={this.props.stateProps.signup.email} onChange={e => this.props.handleSignupOnChange(e)} placeholder="email"/>
+
                             <label>Bio</label>
-                            <input type='text' name='bio' value={this.props.stateProps.signup.username} onChange={e => this.props.handleSignupOnChange(e)} placeholder="bio"/>
-                        </div>
-                        <div className="form-group">
+                            <Input type='text' name='bio' value={this.props.stateProps.signup.username} onChange={e => this.props.handleSignupOnChange(e)} placeholder="bio"/>
+
                             <label>Avatar URL</label>
-                            <input type='text' name='avatar_url' value={this.props.stateProps.signup.username} onChange={e => this.props.handleSignupOnChange(e)} placeholder="avatar_url"/>
-                        </div>
-                        <div className="footer">
-                            <button type='submit' className="btn">Sign up</button>
-                        </div>
+                            <Input type='text' name='avatar_url' value={this.props.stateProps.signup.username} onChange={e => this.props.handleSignupOnChange(e)} placeholder="avatar_url"/>
+
+
+                            <Button m='5px' type='submit' className="btn">Sign up</Button>
                     </form>
-                </div>
+
         )
     }
 

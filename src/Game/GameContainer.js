@@ -39,7 +39,6 @@ class GameContainer extends React.Component {
         let api_id = this.props.match.params.id
         return (
             <div>
-                <h3>Game Container</h3>
                 <InfoCard gameObj={this.state.gameObj}/>
                 <button className='like-button' onClick={this.likeGame}>Like Game</button>
                 <CommentContainer api_id={api_id} gameObj={this.state.gameObj} validated={this.props.validated}/>

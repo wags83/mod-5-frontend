@@ -1,25 +1,20 @@
 import React from 'react';
+import { Input, Box, Text, Button } from "@chakra-ui/core";
+
 
 const LoginForm = (props) => {
     let history = props.history
 
     return (
-        <div className="base-container" >
-                <form className="form" onSubmit={(e) => props.handleSignin(e, history)}>
-                    <div className="header">Login</div>
-                    <div className="form-group">
+                <form isFullWidth='true' className="form" onSubmit={(e) => props.handleSignin(e, history)}>
+                    <Text fontSize='2em'>Login</Text>
                         <label>Username</label>
-                        <input type='text' name='username' value={props.stateProps.username} onChange={e => props.handleLoginOnChange(e)} placeholder="username"/>
-                    </div>
-                    <div className="form-group">
+                        <Input m='5px'isFullWidth="true" type='text' name='username' value={props.stateProps.username} onChange={e => props.handleLoginOnChange(e)} placeholder="username"/>
                         <label>Password</label>
-                        <input type='password' name='password' value={props.stateProps.password} onChange={e => props.handleLoginOnChange(e)} placeholder="password"/>
-                    </div>
-                    <div className="footer">
-                        <button type='submit' className="btn">Sign in</button>
-                    </div>
+                        <Input mx='5px' type='password' name='password' value={props.stateProps.password} onChange={e => props.handleLoginOnChange(e)} placeholder="password"/>
+                        <Button m='5px' type='submit' className="btn">Sign in</Button>
                 </form>
-            </div>
+
     )
 }
 

@@ -7,7 +7,7 @@ class FollowerContainer extends React.Component {
     render (){
         return (
             <div>
-                <h3>Follower Container</h3>
+                <h3>Followers:</h3>
                 {this.props.displayFollower.map(follower => <FollowerCard follower={follower}/>)}
             </div>
         )

@@ -8,6 +8,8 @@ import ProfileContainer from './Profile/ProfileContainer'
 import BrowseContainer from './Browse/BrowseContainer'
 import GameContainer from './Game/GameContainer'
 import { API_BASE }  from './constants'
+import { ThemeProvider } from "@chakra-ui/core";
+import { CSSReset } from "@chakra-ui/core"
 
 class App extends React.Component {
 
@@ -36,7 +38,7 @@ class App extends React.Component {
     .then(data => this.setState({
       validated: { ...data.find(user => ((user.username === this.state.login.username) && (user.password === this.state.login.password)))}
     }))
-    .then(history.push('/home'))
+    .then(this.state.validated ? history.push('/home') : null)
   }
 
   handleCreateNewUser = (e, history) => {
@@ -82,6 +84,8 @@ handleLoginOnChange = e => {
     const stateProps = {...this.state}
   return (
     <div className="App">
+      <ThemeProvider>
+        <CSSReset />
         <NavBar validated={this.state.validated}/>
         <Switch>
         <Route path="/login" render={routerProps => <LoginContainer {...routerProps} 
@@ -96,6 +100,7 @@ handleLoginOnChange = e => {
         <Route path="/games/:id" render={routerProps => <GameContainer {...routerProps} validated={this.state.validated}/>}/>
         <Route path="/profiles/:id" render={routerProps => <ProfileContainer {...routerProps} validated={this.state.validated} />}/>
         </Switch>
+    </ThemeProvider>
     </div>
   );
   }
