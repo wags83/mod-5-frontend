@@ -2,6 +2,7 @@ import React from 'react';
 import { API_BASE }  from '../constants'
 import InfoCard from './InfoCard';
 import CommentContainer from './CommentContainer'
+import { Flex, Button } from "@chakra-ui/core";
 
 class GameContainer extends React.Component {
     state = {
@@ -38,11 +39,10 @@ class GameContainer extends React.Component {
     render (){
         let api_id = this.props.match.params.id
         return (
-            <div>
-                <InfoCard gameObj={this.state.gameObj}/>
-                <button className='like-button' onClick={this.likeGame}>Like Game</button>
+            <Flex flexDirection="column" bg="#7251f0">
+                <InfoCard gameObj={this.state.gameObj} likeGame={this.likeGame}/>
                 <CommentContainer api_id={api_id} gameObj={this.state.gameObj} validated={this.props.validated}/>
-            </div>
+            </Flex>
         )
     }
 }

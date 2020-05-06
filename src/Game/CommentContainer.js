@@ -2,6 +2,7 @@ import React from 'react';
 import { API_BASE }  from '../constants'
 import CommentCard from './CommentCard';
 import CommentForm from './CommentForm'
+import { Flex, Text, Box } from "@chakra-ui/core";
 
 class CommentContainer extends React.Component {
 
@@ -41,15 +42,26 @@ class CommentContainer extends React.Component {
             fetch(`${API_BASE}new_comment`, configObj)
             .then(resp => resp.json())
             .then(result => this.setState({comments: [...this.state.comments, result]}))
+            this.clearForm()
         }
+
+    clearForm = () => {
+        this.setState({title: '', content: ''})
+    }
 
     render (){
         return (
-            <div>
-                <h3>Comment Container</h3>
-                {this.state.comments.message ? this.state.comments.message : this.state.comments.map(comment => <CommentCard comment={comment} handleChange={this.handleChange} />)}
-                <CommentForm addComment={this.addComment} handleChange={this.handleChange}/>
-            </div>
+            <Flex flexDirection='row'>
+                <Flex flexDirection='column' borderWidth="1px" rounded="lg"  margin='5px' bg='#fff' minW='47%' maxW='47%'>
+                    <Box margin='5px'>
+                        <Text fontSize='24pt'>Comments</Text>
+                        {this.state.comments.message ? this.state.comments.message : this.state.comments.map(comment => <CommentCard comment={comment} handleChange={this.handleChange} />)}
+                    </Box>
+                </Flex>
+                <Flex borderWidth="1px" rounded="lg"  margin='5px' bg='#fff' minW='47%' maxW='47%' justify='center'>
+                    <CommentForm addComment={this.addComment} handleChange={this.handleChange}/>
+                </Flex>
+            </Flex>
         )
     }
 }

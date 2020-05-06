@@ -23,7 +23,7 @@ class HomeContainer extends React.Component {
                     <Image src='https://i.imgur.com/WvlgEp8.jpg' alt='welcome banner' width='100%' />
                 </div>
                 <Box
-                    backgroundColor="#7251f0"
+                    bg="#7251f0"
                     background-blend-mode="multiply">
                     <Box
                         fontWeight='bold'

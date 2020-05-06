@@ -24,6 +24,10 @@ class GameCard extends React.Component {
                   lineHeight="tight"
                   textTransform="uppercase"
                   isTruncated='true'
+                  white-space='nowrap'
+                  overflow='hidden'
+                  text-overflow='ellipsis'
+                  maxW="sm"
                 >
                   {this.props.gameObj.name}
                 </Box>

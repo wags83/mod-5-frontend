@@ -1,14 +1,14 @@
 import React from 'react';
 import GameCard from './GameCard'
-
+import { Flex } from '@chakra-ui/core'
 
 class GameCardContainer extends React.Component {
 
     render () {
         return (
-            <div className='game-card-container'>
+            <Flex display="flex" flexWrap="wrap">
                 {this.props.gamesToDisplay ? this.props.gamesToDisplay.map(game => <GameCard gameObj={game} key={game.id} />) : null}
-            </div>
+            </Flex>
         )
     }
 }

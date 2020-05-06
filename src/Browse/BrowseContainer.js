@@ -3,26 +3,25 @@ import GameCardContainer from '../Home/GameCardContainer'
 import Filter from './Filter'
 import { API_BASE }  from '../constants'
 import SearchBox from './SearchBox'
-import { Flex } from '@chakra-ui/core'
+import { Flex, Box} from '@chakra-ui/core'
 
 class BrowseContainer extends React.Component {
     
     state = {
         filteredGames: [],
-        filterBy: '',
+        filterBy: 'action',
         searchTerm: ''
     }
 
     componentDidMount () {
-        fetch(`${API_BASE}new_releases`)
-        .then(resp => resp.json())
-        .then(newReleases => this.setState({ filteredGames: newReleases.results }))
+        this.getGamesByGenre()
     }
 
-     getGamesByGenre = (event) => {
+     getGamesByGenre = () => {
         fetch(`https://api.rawg.io/api/games?genres=${this.state.filterBy}&ordering=-rating`)
         .then(resp => resp.json())
-        .then(genreGames => this.setState({ filteredGames: genreGames.results }))   
+        .then(result => console.log(result))
+        // .then(genreGames => this.setState({ filteredGames: genreGames.results }))   
     }
     
     handleFilterChange = (event) => {
@@ -37,13 +36,25 @@ class BrowseContainer extends React.Component {
     render (){
         let gamesToDisplay = this.state.filteredGames.filter(game => game.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
         return (
-            <Flex className='browse-container'>
-                <Flex classname='filter-search-container' display="column" width="25%">
+            <div background="#7251f0">
+            <Box
+            fontWeight='bold'
+            fontSize='24pt'
+            color='white'
+            backgroundColor="#7251f0"
+            >
+            Browse Games:
+            </Box>
+            <Flex className='browse-container' backgroundColor="#7251f0" flexDirection="flex">
+                <Flex classname='filter-search-container' flexDirection="column" width="25%">
                     <Filter handleFilterChange={this.handleFilterChange} />
                     <SearchBox searchTerm={this.state.searchTerm} handleSearchChange={this.handleSearchChange}/>
                 </Flex>
+            <Flex maxW="75%">
                 <GameCardContainer gamesToDisplay={gamesToDisplay} />
             </Flex>
+            </Flex>
+            </div>
         )
     }
 }
