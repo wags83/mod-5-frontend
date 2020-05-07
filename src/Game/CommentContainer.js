@@ -41,8 +41,8 @@ class CommentContainer extends React.Component {
             }
             fetch(`${API_BASE}new_comment`, configObj)
             .then(resp => resp.json())
-            .then(result => this.setState({comments: [...this.state.comments, result]}))
-            this.clearForm()
+            .then(result => this.setState({comments: [...this.state.comments, result], title: '', content: ''}))
+
         }
 
     clearForm = () => {
@@ -59,7 +59,7 @@ class CommentContainer extends React.Component {
                     </Box>
                 </Flex>
                 <Flex borderWidth="1px" rounded="lg"  margin='5px' bg='#fff' minW='47%' maxW='47%' justify='center'>
-                    <CommentForm addComment={this.addComment} handleChange={this.handleChange}/>
+                    <CommentForm content={this.state.content} title={this.state.title}addComment={this.addComment} handleChange={this.handleChange}/>
                 </Flex>
             </Flex>
         )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Box, Text, Button } from "@chakra-ui/core";
+import { Input, Text, Button } from "@chakra-ui/core";
 
 
 const LoginForm = (props) => {

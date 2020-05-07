@@ -1,7 +1,6 @@
 import React from 'react';
 import GameCardContainer from '../Home/GameCardContainer'
 import Filter from './Filter'
-import { API_BASE }  from '../constants'
 import SearchBox from './SearchBox'
 import { Flex, Box} from '@chakra-ui/core'
 
@@ -20,13 +19,14 @@ class BrowseContainer extends React.Component {
      getGamesByGenre = () => {
         fetch(`https://api.rawg.io/api/games?genres=${this.state.filterBy}&ordering=-rating`)
         .then(resp => resp.json())
-        .then(result => console.log(result))
-        // .then(genreGames => this.setState({ filteredGames: genreGames.results }))   
+        // .then(result => console.log(result))
+        .then(genreGames => this.setState({ filteredGames: genreGames.results }))   
     }
     
     handleFilterChange = (event) => {
-        this.setState({[event.target.name]: event.target.value})
-        this.getGamesByGenre()
+        console.log(event.target.value)
+        this.setState({[event.target.name]: event.target.value}, this.getGamesByGenre )
+        
     }
 
     handleSearchChange = (event) => {
@@ -36,7 +36,7 @@ class BrowseContainer extends React.Component {
     render (){
         let gamesToDisplay = this.state.filteredGames.filter(game => game.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
         return (
-            <div background="#7251f0">
+            <div background="#7251f0" height='1000px'>
             <Box
             fontWeight='bold'
             fontSize='24pt'

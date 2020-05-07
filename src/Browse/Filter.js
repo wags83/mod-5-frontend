@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, Text, Box } from '@chakra-ui/core'
+import { Select, Box } from '@chakra-ui/core'
 
 const genres = ["Action", "Arcade", "Adventure", "Casual", "Family", "Fighting", "Indie", "Platformer", "Puzzle", "Racing", "RPG", "Shooter","Simulation", "Sports", "Strategy"]
 

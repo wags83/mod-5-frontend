@@ -13,10 +13,10 @@ class InfoCard extends React.Component {
                     </Box>
                 </Box>
                 <Flex flexDirection='row'>
-                    <Flex flexDirection='column' maxW='50%' borderWidth="1px" rounded="lg"  margin='5px' bg='#fff'>
+                    <Flex flexDirection='column' minW='45%' maxW='50%' borderWidth="1px" rounded="lg"  margin='5px' bg='#fff'>
                         <Box margin='5px' >
                         <Text fontSize='24pt'>Trailer</Text>
-                            {this.props.gameObj.clip ? <video src={this.props.gameObj.clip.clip} controls/> : null}
+                            {this.props.gameObj.clip ? <video src={this.props.gameObj.clip.clip} controls/> : <Text fontSize='18pt'>Sorry, no trailer available</Text>}
                         </Box>
                     </Flex>
                     <Flex flexDirection='column' maxW='50%' borderWidth="1px" rounded="lg"  margin='5px' bg='#fff' align='center'>
@@ -31,7 +31,7 @@ class InfoCard extends React.Component {
                             </Flex>
                             <Flex borderWidth="1px" rounded="lg"  margin='5px' bg='#fff' padding='5px' align='center' justify='center' flexDirection='column'>
                                 <Image src='https://imgur.com/nWCWPOJ.jpg' size='50px' alt='console'/>
-                                Platforms: {this.props.gameObj.platforms ? this.props.gameObj.platforms.map(platform => platform.platform.name) : null}
+                                Platforms: {this.props.gameObj.platforms ? this.props.gameObj.platforms.map(platform => `${platform.platform.name} `) : null}
                             </Flex>
                             <Flex borderWidth="1px" rounded="lg"  margin='5px' bg='#fff' padding='5px' align='center' justify='center' flexDirection='column'>
                                 <Image src='https://i.imgur.com/8yKtd84.jpg' size='50px' alt='genre'/>

@@ -2,7 +2,7 @@ import React from 'react';
 import { API_BASE }  from '../constants'
 import InfoCard from './InfoCard';
 import CommentContainer from './CommentContainer'
-import { Flex, Button } from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/core";
 
 class GameContainer extends React.Component {
     state = {

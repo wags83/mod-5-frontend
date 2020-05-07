@@ -1,7 +1,7 @@
 import React from 'react';
 import GameCardContainer from './GameCardContainer'
 import { API_BASE }  from '../constants'
-import { Link } from 'react-router-dom';
+
 import { Box, Image } from '@chakra-ui/core'
 
 class HomeContainer extends React.Component {

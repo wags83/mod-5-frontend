@@ -8,7 +8,7 @@ class GameCard extends React.Component {
 
         return (
             <Link to={`/games/${this.props.gameObj.id}`}>
-            <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden" margin='5px' bg='#FFF'>
+            <Box maxW="350px" borderWidth="1px" rounded="lg" overflow="hidden" margin='5px' bg='#FFF'>
               <Image 
               height='200px'
               width='350px'
