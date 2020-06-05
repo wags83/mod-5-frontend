@@ -17,7 +17,7 @@ class SearchBox extends React.Component {
                 <Input
                     name="searchTerm"
                     type="text"
-                    placeholder='Search Games'
+                    placeholder='Search Games '
                     onChange={this.props.handleSearchChange}
                 ></Input>
            </Box>  
