@@ -11,6 +11,7 @@ class ProfileContainer extends React.Component {
         user: {},
         follower: [],
         likedGames: []
+        
     }
 
     componentDidMount () {
